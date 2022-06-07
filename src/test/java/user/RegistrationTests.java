@@ -30,6 +30,8 @@ public class RegistrationTests extends Pages {
 
     }
 
+    //======================================================================================================================
+    //Zadanie 2
     @Test
     public void shouldSearchRandomProductFromMainPage() {
         String productName = mainPage.getRandomProductNameFromMainPage();
@@ -41,6 +43,8 @@ public class RegistrationTests extends Pages {
         Assertions.assertThat(searchResultsPage.getSearchedProductName()).isEqualTo(productName);
     }
 
+    //======================================================================================================================
+    //Zadanie 3
     @Test
     public void shouldAddAndDeleteThreeHummingBirdTShirt() {
         mainPage.shouldClickInProductHummingBirdTShirt();
@@ -48,6 +52,15 @@ public class RegistrationTests extends Pages {
                 .setQuantityField("3")
                 .shouldClickSubmitButton()
                 .shouldClickProceedToCheckoutButton();
+
+        Assertions.assertThat(shoppingCartPage.getProductNameFromShoppingCart()).isEqualTo("HUMMINGBIRD T-SHIRT");
+        Assertions.assertThat(shoppingCartPage.getQuantityOfProduct()).isEqualTo("3");
+        Assertions.assertThat(shoppingCartPage.getPriceOfOneProduct()).isEqualTo("$19.12");
+        Assertions.assertThat(shoppingCartPage.getTotalPriceWithoutSipping()).isEqualTo("$57.36");
+
+        shoppingCartPage.shouldRemoveProductFromBasket();
+        Assertions.assertThat(shoppingCartPage.getTextFromEmptyCart()).isEqualTo("There are no more items in your cart");
+
     }
 
 }

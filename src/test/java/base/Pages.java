@@ -5,6 +5,7 @@ import pages.commons.TopMenuPage;
 import pages.main.MainPage;
 import pages.product.ProductPage;
 import pages.searchResults.SearchResultsPage;
+import pages.shoppingCart.ShoppingCartPage;
 import pages.user.LoginPage;
 import pages.user.RegistrationPage;
 
@@ -17,6 +18,8 @@ public class Pages extends TestBase {
     public SearchResultsPage searchResultsPage;
     public ProductPage productPage;
 
+    public ShoppingCartPage shoppingCartPage;
+
     @BeforeMethod
     public void pagesSetup() {
         mainPage = new MainPage(driver);
@@ -25,7 +28,7 @@ public class Pages extends TestBase {
         registrationPage = new RegistrationPage(driver);
         topMenuPage = new TopMenuPage(driver);
         productPage = new ProductPage(driver);
-
+        shoppingCartPage = new ShoppingCartPage(driver);
     }
 }
 
