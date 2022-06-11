@@ -17,8 +17,6 @@ public class ProductPage extends BasePage {
     @FindBy(css = ".add-to-cart")
     private WebElement submitButton;
 
-    @FindBy(css = "a.btn.btn-primary")
-    private WebElement proceedToCheckoutButton;
 
     public ProductPage setQuantityField(String quantityValue) {
         sendKeysWithClear(quantityField, quantityValue);
@@ -30,10 +28,4 @@ public class ProductPage extends BasePage {
         return this;
     }
 
-    public ProductPage shouldClickProceedToCheckoutButton() {
-        wait.until(ExpectedConditions.elementToBeClickable(proceedToCheckoutButton));
-        click(proceedToCheckoutButton);
-        return this;
-
-    }
 }
