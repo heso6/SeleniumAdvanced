@@ -48,6 +48,8 @@ public class CheckoutTests extends Pages {
                 .clickTermsAndConditionsCheckBox()
                 .clickPlaceOrderButton();
 
+
+//        Mozna to też zrobić w wersji "soft"
         Assertions.assertThat(orderDetailsPage.getConfirmedOrderTxt()).contains("YOUR ORDER IS CONFIRMED");
         Assertions.assertThat(orderDetailsPage.getProductName()).contains("HUMMINGBIRD T-SHIRT");
         Assertions.assertThat(orderDetailsPage.getProductPrice()).isEqualTo("$19.12");
