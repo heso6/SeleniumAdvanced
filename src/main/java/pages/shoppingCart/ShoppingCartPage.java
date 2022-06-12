@@ -5,6 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import pages.base.BasePage;
+import pages.popUp.PopUpElements;
 
 public class ShoppingCartPage extends BasePage {
     public ShoppingCartPage(WebDriver driver) {
@@ -28,6 +29,17 @@ public class ShoppingCartPage extends BasePage {
 
     @FindBy(css = ".no-items")
     private WebElement textFromEmptyCart;
+
+    @FindBy(css = "a.btn.btn-primary")
+    private WebElement proceedToCheckoutButton;
+
+
+    public ShoppingCartPage shouldClickProceedToCheckoutButton() {
+        wait.until(ExpectedConditions.elementToBeClickable(proceedToCheckoutButton));
+        click(proceedToCheckoutButton);
+        return this;
+
+    }
 
 
     public String getProductNameFromShoppingCart() {
